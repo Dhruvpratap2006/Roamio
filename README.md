@@ -1,383 +1,88 @@
+<div align="center">
+
 # 🧭 Roamio
 
-<p align="center">
-  <strong>An AI-powered Airbnb-inspired travel listing platform built with the MERN ecosystem.</strong>
-</p>
+**A full-stack travel listing platform (Airbnb-inspired) built with the MERN stack, AI features, and Stripe payments.**
 
-<p align="center">
-Discover, list, and book unique stays with secure authentication, interactive maps, AI-powered features, and Stripe payments.
-</p>
+[![Live Demo](https://img.shields.io/badge/Demo-Live_Site-FF5A5F?style=for-the-badge&logo=render&logoColor=white)](https://roamio-6s3k.onrender.com)
+[![GitHub](https://img.shields.io/badge/Repo-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Dhruvpratap2006/Roamio)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dhruv-pratap-1a3aaa344/)
 
----
-
-## 🌐 Live Demo
-
-**🔗 Live Website:** https://roamio-6s3k.onrender.com
-
-**📂 GitHub Repository:** https://github.com/Dhruvpratap2006/Roamio
+</div>
 
 ---
 
-# 📸 Preview
+## What it does
 
-> Add screenshots of your application here.
+Roamio lets users create, browse, review, and book travel listings. Hosts can auto-generate listing descriptions using AI, and reviews get summarized into a quick sentiment overview. Payments run through Stripe.
 
-| Home Page | Listing Details |
-|------------|-----------------|
-| ![](screenshots/home.png) | ![](screenshots/listing.png) |
+## Features
 
-| AI Features | Booking |
-|--------------|----------|
-| ![](screenshots/ai.png) | ![](screenshots/booking.png) |
+- 🔐 Auth with Passport.js + session storage in MongoDB
+- 🏡 Full listing CRUD with Cloudinary image uploads
+- 🗺️ Mapbox geocoding — every listing shows on an interactive map
+- 🤖 AI-generated listing descriptions (OpenRouter API)
+- 💬 AI review sentiment summary (with graceful fallback if API is down)
+- 💳 Stripe Checkout for bookings
+- 🛡️ Rate limiting on key routes
 
----
+## Tech Stack
 
-# ✨ Features
+`Node.js` `Express` `MongoDB + Mongoose` `EJS` `Bootstrap` `Passport.js` `Cloudinary` `Mapbox` `Stripe` `OpenRouter API` `Render`
 
-## 👤 User Features
+## Screenshots
 
-- User Registration & Login
-- Secure Authentication using Passport.js
-- Session-based Login
-- Browse Travel Listings
-- View Listing Details
-- Search & Explore Properties
-- Book Listings
-- Mobile Responsive Design
+| Homepage | Explore Listings |
+|---|---|
+| ![Homepage](public/images/homepage.png) | ![Explore](public/images/explore-listings.png) |
 
----
+| Listing + Map | AI Description |
+|---|---|
+| ![Listing](public/images/listing-details.png) | ![AI Description](public/images/ai-description.png) |
 
-## 🏠 Host Features
+| AI Sentiment Summary | Stripe Checkout |
+|---|---|
+| ![AI Sentiment](public/images/ai-sentiment.png) | ![Payment](public/images/payment-page.png) |
 
-- Create New Listings
-- Edit Existing Listings
-- Delete Listings
-- Upload Property Images
-- Cloudinary Image Storage
-- Interactive Map Location
-
----
-
-## 🤖 AI Features
-
-### AI Listing Description Generator
-
-Automatically generates engaging property descriptions using the OpenRouter API based on:
-
-- Listing Title
-- Category
-- Location
-
-### AI Review Sentiment Analysis
-
-Analyzes all user reviews and generates:
-
-- Overall Sentiment
-- AI Summary
-- Positive / Neutral / Negative Classification
-
----
-
-## ⭐ Reviews
-
-- Star Rating System
-- User Comments
-- Review Authorization
-- Author-only Delete Permission
-
----
-
-## 💳 Booking & Payments
-
-- Stripe Checkout Integration
-- Secure Payment Processing
-- Booking Confirmation
-- Duplicate Booking Prevention
-
----
-
-## 🔐 Security
-
-- Authentication
-- Authorization
-- Session Management
-- Express Session
-- Connect Mongo
-- Joi Validation
-- Rate Limiting
-- Flash Messages
-- Environment Variables
-
----
-
-# 🛠 Tech Stack
-
-| Category | Technologies |
-|----------|--------------|
-| Backend | Node.js, Express.js |
-| Frontend | EJS, Bootstrap 5, Custom CSS |
-| Database | MongoDB, Mongoose |
-| Authentication | Passport.js |
-| Validation | Joi |
-| AI | OpenRouter API |
-| Cloud Storage | Cloudinary |
-| Maps | Mapbox GL JS |
-| Payments | Stripe Checkout |
-| Deployment | Render |
-
----
-
-# 🏗 Project Architecture
-
-The project follows the **MVC (Model-View-Controller)** architecture for better scalability and maintainability.
-
-```
-Roamio
-│
-├── controllers
-│   ├── listings.js
-│   ├── reviews.js
-│   ├── users.js
-│   └── bookings.js
-│
-├── models
-│   ├── Listing.js
-│   ├── Review.js
-│   ├── User.js
-│   └── Booking.js
-│
-├── routes
-│
-├── middleware
-│
-├── utils
-│
-├── public
-│   ├── css
-│   ├── js
-│   └── images
-│
-├── views
-│
-├── cloudConfig.js
-├── app.js
-└── package.json
-```
-
----
-
-# 🚀 Getting Started
-
-## Prerequisites
-
-- Node.js (v18 or above)
-- MongoDB Atlas
-- Cloudinary Account
-- Mapbox Account
-- Stripe Account
-- OpenRouter API Key
-
----
-
-## Installation
-
-Clone the repository
+## Run it locally
 
 ```bash
 git clone https://github.com/Dhruvpratap2006/Roamio.git
-
 cd Roamio
-```
-
-Install dependencies
-
-```bash
 npm install
 ```
 
-Create a `.env` file in the root directory.
+Add a `.env` file:
 
-```env
-# Database
-ATLAS_DB_URL=
-
-# Cloudinary
-CLOUD_NAME=
-CLOUD_API_KEY=
-CLOUD_API_SECRET=
-
-# Mapbox
-MAP_TOKEN=
-
-# Stripe
-STRIPE_SECRET_KEY=
-
-# Session
-SESSION_SECRET=
-
-# AI
-OPENROUTER_API_KEY=
 ```
-
-Start the application
-
-```bash
-npm start
+ATLAS_DB_URL=your_mongodb_uri
+SESSION_SECRET=your_session_secret
+CLOUD_NAME=your_cloudinary_name
+CLOUD_API_KEY=your_cloudinary_key
+CLOUD_API_SECRET=your_cloudinary_secret
+MAP_TOKEN=your_mapbox_token
+STRIPE_SECRET_KEY=your_stripe_key
+OPENROUTER_API_KEY=your_openrouter_key
 ```
-
-or
 
 ```bash
 npm run dev
 ```
 
-Visit
+Runs at `http://localhost:8080`
 
-```
-http://localhost:8080
-```
+## Roadmap
 
----
+- [ ] Booking calendar with date-blocking
+- [ ] Search & filter by location/amenities
+- [ ] Host dashboard with revenue stats
+- [ ] Email notifications on booking
 
-# 💡 Key Implementation Highlights
+## Author
 
-### 🤖 AI Description Generator
-
-Uses OpenRouter's Chat Completion API to generate engaging property descriptions based on user inputs.
-
----
-
-### 💬 AI Sentiment Analysis
-
-Automatically analyzes reviews and generates:
-
-- Overall sentiment
-- AI-generated summary
-- Positive / Neutral /Negative classification
-
-Gracefully handles API failures so review submission never breaks.
+**Dhruv Pratap Singh** — B.Tech CSE (Data Science), NIET
+[GitHub](https://github.com/Dhruvpratap2006) • [LinkedIn](https://www.linkedin.com/in/dhruv-pratap-1a3aaa344/)
 
 ---
 
-### 🗺 Interactive Maps
-
-Uses Mapbox Geocoding API to:
-
-- Convert addresses into coordinates
-- Display custom markers
-- Show property location on interactive maps
-
----
-
-### ☁ Cloud Image Storage
-
-All uploaded property images are stored securely using Cloudinary.
-
----
-
-### 💳 Secure Payments
-
-Stripe Checkout is used for secure booking payments.
-
-Features include:
-
-- Server-side Checkout Sessions
-- Dynamic Success/Cancel URLs
-- Duplicate Booking Prevention
-
----
-
-### 🔒 Authentication
-
-Implemented using Passport.js with:
-
-- Local Strategy
-- Session Authentication
-- Authorization Middleware
-- Protected Routes
-
----
-
-# 📈 Future Enhancements
-
-- Booking Calendar with Date Availability
-- Wishlist Feature
-- AI Smart Search
-- Host Analytics Dashboard
-- Email Notifications
-- Payment History
-- Booking Cancellation
-- Property Availability Management
-
----
-
-# 🤝 Contributing
-
-Contributions are always welcome.
-
-1. Fork the repository
-
-2. Create your feature branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Added new feature"
-```
-
-4. Push the branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
-
----
-
-# 🙏 Acknowledgements
-
-Special thanks to:
-
-- Airbnb (Design Inspiration)
-- Bootstrap
-- Cloudinary
-- Mapbox
-- Stripe
-- Passport.js
-- MongoDB
-- OpenRouter
-
----
-
-# 👨‍💻 Author
-
-## Dhruv Pratap
-
-B.Tech Computer Science Engineering (Data Science)
-
-Noida Institute of Engineering & Technology
-
-**GitHub**
-
-https://github.com/Dhruvpratap2006
-
-**LinkedIn**
-
-_Add your LinkedIn profile here_
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
-See the `LICENSE` file for more information.
-
----
-
-⭐ If you found this project helpful, consider giving it a **Star** on GitHub!
+⭐ If you found this useful, drop a star!
