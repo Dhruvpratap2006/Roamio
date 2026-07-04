@@ -34,7 +34,7 @@ Roamio lets users create, browse, review, and book travel listings. Hosts can au
 
 | Homepage | Explore Listings |
 |---|---|
-| ![Homepage](public/images/homepage.png) | ![Explore](public/images/explore-listings.png) |
+| ![Homepage](public/images/homepage.png)
 
 | Featured Listings | Add Listing |
 |---|---|
