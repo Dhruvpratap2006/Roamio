@@ -153,10 +153,9 @@ mongoose.connect(process.env.ATLAS_DB_URL, { family: 4 })
 
 
 
-// app.get("/", (req, res) => {
-//     res.send("Hii I am route");
-// })
-// // 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 
 
