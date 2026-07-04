@@ -1,383 +1,146 @@
+<div align="center">
+
 # 🧭 Roamio
 
-<p align="center">
-  <strong>An AI-powered Airbnb-inspired travel listing platform built with the MERN ecosystem.</strong>
-</p>
+### **Full-Stack AI-Powered Travel Listing Platform**
 
-<p align="center">
-Discover, list, and book unique stays with secure authentication, interactive maps, AI-powered features, and Stripe payments.
-</p>
+Roamio is a robust, production-ready travel listing application inspired by Airbnb. Built on the MERN stack architecture, it seamlessly integrates GenAI features, secure third-party financial processing, dynamic geocoding, and strict role-based access control (RBAC) to deliver an optimized, scalable user experience.
+
+[![Live Demo](https://img.shields.io/badge/Demo-Live_Site-FF5A5F?style=for-the-badge&logo=render&logoColor=white)](https://roamio-6s3k.onrender.com)
+[![GitHub Repository](https://img.shields.io/badge/Repository-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Dhruvpratap2006/Roamio)
+
+---
+</div>
+
+## 🛠️ Tech Stack & Ecosystem
+
+| Layer | Technologies Used |
+| :--- | :--- |
+| **Frontend Architecture** | EJS (Embedded JavaScript), Bootstrap 5, Vanilla JS, Custom CSS3 |
+| **Backend Core** | Node.js, Express.js |
+| **Database & ORM** | MongoDB Atlas, Mongoose ODM |
+| **Authentication & Security** | Passport.js (Local Strategy), Express-Session, Connect-Mongo, Joi |
+| **Artificial Intelligence** | OpenRouter API (LLM Integration for NLP & Sentiment Tasks) |
+| **Cloud Infrastructure & APIs** | Cloudinary API (Media), Mapbox GL JS API (Geospatial), Stripe API (Payments) |
+| **Deployment & Hosting** | Render |
 
 ---
 
-## 🌐 Live Demo
+## 🚀 Key Architectural & Engineering Highlights
 
-**🔗 Live Website:** https://roamio-6s3k.onrender.com
+### 🤖 1. Context-Aware GenAI Features
+* **Automated Listing Optimizer:** Leverages OpenRouter API to programmatically generate engaging, high-conversion property descriptions using structured inputs (Title, Category, Location).
+* **Aggregate Sentiment Analytics Engine:** Implements runtime NLP processing to analyze multi-user text reviews. It compiles qualitative data into quantitative metrics, rendering overall sentiment classifications alongside an AI-generated property summary. Built with a **graceful fallback architecture** to guarantee continuous uptime if the upstream API encounters rate limits.
 
-**📂 GitHub Repository:** https://github.com/Dhruvpratap2006/Roamio
+### 🗺️ 2. Geospatial Mapping & Geocoding Pipeline
+* Integrated **Mapbox GL JS** API to convert unstructured string addresses into geographic coordinates ($Latitude, Longitude$) asynchronously during listing creation, rendering precise, interactive client-side location maps.
 
----
+### 💳 3. Secure Financial Transaction Processing
+* Engineered a server-side **Stripe Checkout** workflow handling secure webhooks, state tracking, and tokenized payment processing to mitigate client-side tampering and enforce duplicate booking prevention.
 
-# 📸 Preview
-
-> Add screenshots of your application here.
-
-| Home Page | Listing Details |
-|------------|-----------------|
-| ![](screenshots/home.png) | ![](screenshots/listing.png) |
-
-| AI Features | Booking |
-|--------------|----------|
-| ![](screenshots/ai.png) | ![](screenshots/booking.png) |
+### 🔐 4. Session Architecture & Security Hardening
+* Implemented stateful session-based authentication using **Passport.js** and distributed storage via `connect-mongo`.
+* Secured applications using **Joi Schema Validation** for incoming payloads, protected routes via modular access control middleware, and mitigated DoS risks using `express-rate-limit`.
 
 ---
 
-# ✨ Features
+## 📸 Product Interface
 
-## 👤 User Features
+<details>
+<summary>📋 Click to expand interface previews</summary>
 
-- User Registration & Login
-- Secure Authentication using Passport.js
-- Session-based Login
-- Browse Travel Listings
-- View Listing Details
-- Search & Explore Properties
-- Book Listings
-- Mobile Responsive Design
+### 🏠 App Homepage
+![Homepage](public/images/homepage.png)
 
----
+### 🌍 Dynamic Explore Grid
+![Explore Listings](public/images/explore-listings.png)
 
-## 🏠 Host Features
+### 🏡 Granular Listing & Mapping Details
+![Listing Details](public/images/listing-details.png)
 
-- Create New Listings
-- Edit Existing Listings
-- Delete Listings
-- Upload Property Images
-- Cloudinary Image Storage
-- Interactive Map Location
+### 🤖 AI Listing Engine & Sentiment UI
+![AI Description](public/images/ai-description.png)
+![AI Sentiment](public/images/ai-sentiment.png)
+
+### 💳 Secure Stripe Interface
+![Payment](public/images/payment-page.png)
+</details>
 
 ---
 
-## 🤖 AI Features
+## 🏗️ Project Structure
 
-### AI Listing Description Generator
+```text
+Roamio/
+├── controllers/          # Business logic handlers separated from routing
+├── middleware/           # RBAC, Authentication checks, and Joi validation
+├── models/               # Mongoose schemas (User, Listing, Review)
+├── public/               # Client-side static assets
+│   ├── css/              # Structured UI component styling
+│   ├── js/               # Asynchronous logic & Mapbox implementations
+│   └── images/
+├── routes/               # Modular Express routing pipelines
+├── utils/                # Global error handlers and wrapper wrappers
+├── views/                # Dynamic EJS UI view templates
+├── app.js                # Application entry point and server configuration
+└── cloudConfig.js        # Multi-cloud SDK initialization (Cloudinary)
 
-Automatically generates engaging property descriptions using the OpenRouter API based on:
+⚙️ Local Development Setup
+Prerequisites
+Node.js (v18.x or higher)
 
-- Listing Title
-- Category
-- Location
+MongoDB Atlas cluster or local URI
 
-### AI Review Sentiment Analysis
+Installation Workflow
+Clone & Navigate:
 
-Analyzes all user reviews and generates:
-
-- Overall Sentiment
-- AI Summary
-- Positive / Neutral / Negative Classification
-
----
-
-## ⭐ Reviews
-
-- Star Rating System
-- User Comments
-- Review Authorization
-- Author-only Delete Permission
-
----
-
-## 💳 Booking & Payments
-
-- Stripe Checkout Integration
-- Secure Payment Processing
-- Booking Confirmation
-- Duplicate Booking Prevention
-
----
-
-## 🔐 Security
-
-- Authentication
-- Authorization
-- Session Management
-- Express Session
-- Connect Mongo
-- Joi Validation
-- Rate Limiting
-- Flash Messages
-- Environment Variables
-
----
-
-# 🛠 Tech Stack
-
-| Category | Technologies |
-|----------|--------------|
-| Backend | Node.js, Express.js |
-| Frontend | EJS, Bootstrap 5, Custom CSS |
-| Database | MongoDB, Mongoose |
-| Authentication | Passport.js |
-| Validation | Joi |
-| AI | OpenRouter API |
-| Cloud Storage | Cloudinary |
-| Maps | Mapbox GL JS |
-| Payments | Stripe Checkout |
-| Deployment | Render |
-
----
-
-# 🏗 Project Architecture
-
-The project follows the **MVC (Model-View-Controller)** architecture for better scalability and maintainability.
-
-```
-Roamio
-│
-├── controllers
-│   ├── listings.js
-│   ├── reviews.js
-│   ├── users.js
-│   └── bookings.js
-│
-├── models
-│   ├── Listing.js
-│   ├── Review.js
-│   ├── User.js
-│   └── Booking.js
-│
-├── routes
-│
-├── middleware
-│
-├── utils
-│
-├── public
-│   ├── css
-│   ├── js
-│   └── images
-│
-├── views
-│
-├── cloudConfig.js
-├── app.js
-└── package.json
-```
-
----
-
-# 🚀 Getting Started
-
-## Prerequisites
-
-- Node.js (v18 or above)
-- MongoDB Atlas
-- Cloudinary Account
-- Mapbox Account
-- Stripe Account
-- OpenRouter API Key
-
----
-
-## Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/Dhruvpratap2006/Roamio.git
-
+Bash
+git clone [https://github.com/Dhruvpratap2006/Roamio.git](https://github.com/Dhruvpratap2006/Roamio.git)
 cd Roamio
-```
+Install Ecosystem Dependencies:
 
-Install dependencies
-
-```bash
+Bash
 npm install
-```
+Configure Environment Matrix: Create a .env file in the root directory and populate your keys:
 
-Create a `.env` file in the root directory.
+Code snippet
+ATLAS_DB_URL=mongodb+srv://<username>:<password>@cluster.mongodb.net/roamio
+SESSION_SECRET=your_high_entropy_session_secret
+CLOUD_NAME=your_cloudinary_name
+CLOUD_API_KEY=your_cloudinary_key
+CLOUD_API_SECRET=your_cloudinary_secret
+MAP_TOKEN=your_mapbox_public_token
+STRIPE_SECRET_KEY=your_stripe_secret_key
+OPENROUTER_API_KEY=your_openrouter_api_key
+Initialize Boot Sequence:
 
-```env
-# Database
-ATLAS_DB_URL=
-
-# Cloudinary
-CLOUD_NAME=
-CLOUD_API_KEY=
-CLOUD_API_SECRET=
-
-# Mapbox
-MAP_TOKEN=
-
-# Stripe
-STRIPE_SECRET_KEY=
-
-# Session
-SESSION_SECRET=
-
-# AI
-OPENROUTER_API_KEY=
-```
-
-Start the application
-
-```bash
-npm start
-```
-
-or
-
-```bash
+Bash
+# Development hot-reloading
 npm run dev
-```
 
-Visit
+# Production mode
+npm start
+The local environment will mount at http://localhost:8080.
 
-```
-http://localhost:8080
-```
+📈 Roadmap & Upcoming Features
+[ ] Temporal Scheduling: Full booking calendar engine with active date-blocking matrix.
 
----
+[ ] Smart Search Engine: Multi-parameter filtering algorithms based on coordinates and amenities.
 
-# 💡 Key Implementation Highlights
+[ ] Host Telemetry Dashboard: Integrated charts displaying revenue metrics and booking frequencies.
 
-### 🤖 AI Description Generator
+[ ] Automated Notifications: Event-driven email dispatch for booking confirmations via Nodemailer.
 
-Uses OpenRouter's Chat Completion API to generate engaging property descriptions based on user inputs.
+👨‍💻 Engineer Profiles & Links
+Dhruv Pratap Singh
+B.Tech in Computer Science Engineering (Data Science) Noida Institute of Engineering & Technology (NIET), Greater Noida
 
----
+GitHub: @Dhruvpratap2006
 
-### 💬 AI Sentiment Analysis
+LinkedIn: https://www.linkedin.com/in/dhruv-pratap-1a3aaa344/
 
-Automatically analyzes reviews and generates:
+Email: your-email@example.com
 
-- Overall sentiment
-- AI-generated summary
-- Positive / Neutral /Negative classification
+Licensed under the MIT License.
 
-Gracefully handles API failures so review submission never breaks.
-
----
-
-### 🗺 Interactive Maps
-
-Uses Mapbox Geocoding API to:
-
-- Convert addresses into coordinates
-- Display custom markers
-- Show property location on interactive maps
-
----
-
-### ☁ Cloud Image Storage
-
-All uploaded property images are stored securely using Cloudinary.
-
----
-
-### 💳 Secure Payments
-
-Stripe Checkout is used for secure booking payments.
-
-Features include:
-
-- Server-side Checkout Sessions
-- Dynamic Success/Cancel URLs
-- Duplicate Booking Prevention
-
----
-
-### 🔒 Authentication
-
-Implemented using Passport.js with:
-
-- Local Strategy
-- Session Authentication
-- Authorization Middleware
-- Protected Routes
-
----
-
-# 📈 Future Enhancements
-
-- Booking Calendar with Date Availability
-- Wishlist Feature
-- AI Smart Search
-- Host Analytics Dashboard
-- Email Notifications
-- Payment History
-- Booking Cancellation
-- Property Availability Management
-
----
-
-# 🤝 Contributing
-
-Contributions are always welcome.
-
-1. Fork the repository
-
-2. Create your feature branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Added new feature"
-```
-
-4. Push the branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
-
----
-
-# 🙏 Acknowledgements
-
-Special thanks to:
-
-- Airbnb (Design Inspiration)
-- Bootstrap
-- Cloudinary
-- Mapbox
-- Stripe
-- Passport.js
-- MongoDB
-- OpenRouter
-
----
-
-# 👨‍💻 Author
-
-## Dhruv Pratap
-
-B.Tech Computer Science Engineering (Data Science)
-
-Noida Institute of Engineering & Technology
-
-**GitHub**
-
-https://github.com/Dhruvpratap2006
-
-**LinkedIn**
-
-_Add your LinkedIn profile here_
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
-See the `LICENSE` file for more information.
-
----
-
-⭐ If you found this project helpful, consider giving it a **Star** on GitHub!
+Distributed with structural optimization for modern web application design. Give this project a ⭐ if you find it valuable!
