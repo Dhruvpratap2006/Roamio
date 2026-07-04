@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+<% locals.bodyClass = "page-auth" %>
+
+<div class="signup-split">
+  <div class="signup-left">
+    <div class="left-tag"><h2>new destinations await</h2></div>
+    <h1 class="left-headline">Your next stay<br>starts here.</h1>
+    <p class="left-sub">Discover hand-picked stays from cozy cabins to city lofts.</p>
+    <div class="left-stats">
+      <div><span class="stat-num">12k+</span><span class="stat-label">listings</span></div>
+      <div><span class="stat-num">80+</span><span class="stat-label">countries</span></div>
+    </div>
+  </div>
+  <div class="signup-right">
+    <div class="auth-brand mb-4">
+    <a href="/listings" class="text-decoration-none">
+      <i class="bi bi-compass"></i>
+      <span>Roamio</span>
+    </a>
+  </div>
+    <h2>Create account</h2>
+    <p class="text-muted">Sign up to start your journey</p>
+    <form method="POST" action="/signUp" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username" class="form-control roamio-input" placeholder="Choose a username" required>
+        <div class="invalid-feedback">Please provide a username.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" class="form-control roamio-input" placeholder="Enter your email" required>
+        <div class="invalid-feedback">Please provide a valid email.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" id="password" class="form-control roamio-input" placeholder="Create a password" required>
+        <div class="invalid-feedback">Please provide a password.</div>
+      </div>
+      <button type="submit" class="btn roamio-btn w-100">Sign Up →</button>
+    </form>
+    <p class="text-center mt-3 text-muted" style="font-size:13px;">
+      Already have an account? <a href="/login" class="roamio-link">Log In</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,278 @@
+<%- layout("/layouts/boilerPlate") -%>
+
+<style>
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(255, 126, 95, 0.35);
+}
+.btn-back:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 126, 95, 0.45);
+  color: white;
+}
+
+.current-image-preview {
+    position: relative;
+    display: inline-block;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.current-image-preview img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+.image-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.3px;
+}
+
+.category-select {
+  font-family: 'Poppins', sans-serif;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.category-select:hover {
+  border-color: #aaa;
+}
+
+.category-select:focus {
+  border-color: #1a1a2e;
+  box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
+  outline: none;
+  background-color: #fff;
+}
+
+.category-select option {
+  padding: 0.5rem;
+}
+</style>
+
+<div class="mt-4 d-flex justify-content-between">
+                <a href="/listings" class="btn-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 5l-7 7 7 7"/>
+                    </svg>
+                    Back
+                </a>
+                <a href="/listings/<%= listing._id %>" class="btn-back">
+                    View the Listing
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+</div>
+
+<div class="row mt-4 mb-5">
+    <div class="col-8 offset-2">
+        <h2 class="roamio-form-heading">Edit Listing</h2>
+
+        <div class="roamio-form-card">
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+
+                <!-- Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input 
+                        id="title"
+                        name="listing[title]" 
+                        value="<%= listing.title %>" 
+                        type="text" 
+                        class="form-control roamio-input" 
+                        placeholder="Name of your destination"
+                        required>
+                    <div class="valid-feedback">✔ Looks great!</div>
+                    <div class="invalid-feedback">⚠ Please enter a title for your listing.</div>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea 
+                        id="description"
+                        name="listing[description]" 
+                        class="form-control roamio-input" 
+                        rows="4" 
+                        placeholder="Write a few lines about the place..."
+                        required><%= listing.description %></textarea>
+                    <div class="valid-feedback">✔ Great description!</div>
+                    <div class="invalid-feedback">⚠ Please add a short description of the place.</div>
+                </div>
+
+                
+
+                <div class="mb-3">
+                    <label class="form-label"></label>
+                    <div class="current-image-preview">
+                        <img src="<%= listing.image.url %>" alt="Current listing image">
+                        <span class="image-badge">Current Photo</span>
+                    </div>
+                </div>
+
+                <br>
+
+                
+                
+                <div class="mb-3">
+                    <label for="image" class="form-label">
+                        Upload Image <span class="text-muted small">(optional — leave unchanged to keep current image)</span>
+                    </label>
+
+                    <input 
+                        id="image"
+                        name="listing[image]" 
+                        type="file" 
+                        class="form-control roamio-input"
+                    <div class="valid-feedback">✔ Image  looks good!</div>
+                    <div class="invalid-feedback">⚠ Please enter a valid image format("png", "jpg", "jpeg").</div>
+                </div>
+
+                <div class="mb-3">
+                        <label for="category" class="form-label">Select Category</label>
+                        <select id="category" name="listing[category]" class="form-select category-select" required>
+                            <option value="trending" <%= listing.category === 'trending' ? 'selected' : '' %>>
+                                🔥 Trending
+                            </option>
+                            <option value="beachfront" <%= listing.category === 'beachfront' ? 'selected' : '' %>>
+                                🏖️ Beachfront
+                            </option>
+                            <option value="mountains" <%= listing.category === 'mountains' ? 'selected' : '' %>>
+                                ⛰️ Mountains
+                            </option>
+                            <option value="iconic-cities" <%= listing.category === 'iconic-cities' ? 'selected' : '' %>>
+                                🏙️ Iconic Cities
+                            </option>
+                            <option value="camping" <%= listing.category === 'camping' ? 'selected' : '' %>>
+                                ⛺ Camping
+                            </option>
+                            <option value="castles" <%= listing.category === 'castles' ? 'selected' : '' %>>
+                                🏰 Castles
+                            </option>
+                            <option value="tea-trails" <%= listing.category === 'tea-trails' ? 'selected' : '' %>>
+                                ☕ Tea Trails & Estates
+                            </option>
+                            <option value="scholars-retreats" <%= listing.category === 'scholars-retreats' ? 'selected' : '' %>>
+                                🏛️ Scholar's Retreats
+                            </option>
+                            <option value="wild-outposts" <%= listing.category === 'wild-outposts' ? 'selected' : '' %>>
+                                ⛺ Wild & Outpost Stays
+                            </option>
+                            <option value="high-altitude" <%= listing.category === 'high-altitude' ? 'selected' : '' %>>
+                                🏔️ High-Altitude Havens
+                            </option>   
+                        </select>
+                </div>
+
+
+                <div id="newImagePreview" class="mt-2" style="display:none;">
+                    <label class="form-label text-muted small"></label>
+                    <div class="current-image-preview">
+                        <img id="previewImg" src="" >
+                        <span class="image-badge" style="background: rgba(255,126,95,0.85);">New Photo</span>
+                    </div>
+                </div>
+
+                <br>
+                <!-- Price & Country -->
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text roamio-addon">₹</span>
+                            <input 
+                                id="price"
+                                name="listing[price]" 
+                                value="<%= listing.price %>" 
+                                type="number"
+                                min="0"
+                                class="form-control roamio-input" 
+                                placeholder="1200"
+                                required>
+                            <div class="valid-feedback">✔ Valid price!</div>
+                            <div class="invalid-feedback">⚠ Please enter a valid price.</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input 
+                            id="country"
+                            name="listing[country]" 
+                            value="<%= listing.country %>" 
+                            type="text" 
+                            class="form-control roamio-input"
+                            placeholder="e.g. India"
+                            required>
+                        <div class="valid-feedback">✔ Country noted!</div>
+                        <div class="invalid-feedback">⚠ Please enter the country name.</div>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input 
+                        id="location"
+                        name="listing[location]" 
+                        value="<%= listing.location %>" 
+                        type="text" 
+                        class="form-control roamio-input"
+                        placeholder="City, State"
+                        required>
+                    <div class="valid-feedback">✔ Location confirmed!</div>
+                    <div class="invalid-feedback">⚠ Please enter the location (city, state).</div>
+                </div>
+
+                <button class="btn btn-roamio-submit mt-3">Update Listing 🧭</button>
+            </form>
+
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("image").addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = e => {
+            document.getElementById("previewImg").src = e.target.result;
+            document.getElementById("newImagePreview").style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    });
+</script>

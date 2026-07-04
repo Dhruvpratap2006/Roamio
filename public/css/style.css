@@ -1,0 +1,1483 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap');
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+/* .bi-compass {
+    font-size: 1.8rem;
+    color: #FF5A5F;
+} */
+
+.navbar-brand i {
+    color: #E07A5F !important;
+    font-size: 1.8rem;
+}
+.navbar-brand i:hover {
+    color: #F2CC8F !important;
+    transition: color 0.3s ease;
+}
+
+
+
+.nav-link {
+    color: #000000 !important;        /* soft dark color */
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Footer */
+.f-info {
+    background-color: #f7f7f7;
+    border-top: 1px solid #dddddd;
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #222222;
+}
+
+/* Left side links */
+.f-info-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    font-weight: 400;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+/* Dot separator */
+.f-info-links span.dot {
+    color: #999999;
+    margin: 0 2px;
+}
+
+/* Right side social icons */
+.f-socialMedia-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.f-socialMedia-info a {
+    color: #222222;
+    font-size: 1.1rem;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;              /* prevents stretching */
+    min-height: 36px;             /* prevents stretching */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;               /* prevents oval shape */
+    transition: background-color 0.2s ease;
+}
+
+.f-socialMedia-info a:hover {
+    background-color: #c2c2c2;
+    color: #222222;
+}
+
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F0E8;
+    color: #2c2c2c;
+}
+
+/* Card Link */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Card */
+.roamio-card {
+    border: none !important;
+    border-radius: 1.2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.roamio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Image */
+.img-wrapper {
+    overflow: hidden;
+    border-radius: 1.2rem 1.2rem 0 0;
+    height: 200px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.roamio-card:hover .img-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Card Body */
+.card-body {
+    padding: 0.8rem 1rem 1rem !important;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ff7e5f ;
+    margin-bottom: 0.2rem;
+}
+
+.card-location {
+    font-size: 0.78rem;
+    color: #8B5E3C;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+}
+
+.card-price {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 0;
+}
+
+.card-price span {
+    font-weight: 300;
+    color: #888;
+    font-size: 0.8rem;
+}
+
+/* new.ejs and edit.ejs styling */
+/* Roamio Major Project Styling - Clean White Theme */
+/* Roamio Major Project - Sunset Coral Theme */
+body {
+    background-color: #ffffff !important;
+    font-family: 'Poppins', sans-serif;
+    color: #2c2c2c;
+}
+
+/* 1. Heading Color Update */
+.roamio-form-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #ff7e5f; /* Sunset Coral */
+    margin-bottom: 1.5rem;
+}
+
+/* Form Container */
+.roamio-form-card {
+    border: 1px solid #eeeeee;
+    padding: 2.5rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Inputs */
+.roamio-input {
+    border: 1.5px solid #dfe4ea !important;
+    border-radius: 8px !important;
+    padding: 0.7rem !important;
+}
+
+.roamio-input:focus {
+    border-color: #ff7e5f !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 126, 95, 0.1) !important;
+}
+
+.roamio-addon {
+    background-color: #fffaf9;
+    border: 1.5px solid #dfe4ea;
+    border-right: none;
+    color: #ff7e5f;
+    font-weight: 600;
+}
+
+/* Button */
+.btn-roamio-submit {
+    background-color: #ff7e5f !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.8rem 2rem !important;
+    font-weight: 600;
+    border-radius: 8px !important;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-roamio-submit:hover {
+    background-color: #e66a4e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+}
+
+/* 2. Back Link Hover Update */
+.roamio-back-link {
+    text-decoration: none;
+    color: #666; /* Default subtle color */
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.roamio-back-link:hover {
+    color: #ff7e5f; /* Change to Coral on hover */
+    text-decoration: underline;
+}
+
+
+/* show.ejs */
+/* buttons styling */
+.btns {
+    display: flex;
+}
+
+.auth-brand a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.auth-brand i {
+  font-size: 1.8rem;
+  color: #d85a30 !important;
+}
+
+.auth-brand span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #d85a30 !important;
+}
+
+/* ===========================SignUp and Login Forms styling =====================*/
+
+/* ===========================SignUp and Login Forms styling =====================*/
+
+/* page-auth override — container full width */
+.page-auth .container {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.signup-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  min-height: calc(100vh - 80px - 57px);
+  /* margin-top: 1rem; */
+  margin-bottom: 2rem;
+}
+
+.signup-left {
+  background: 
+    linear-gradient(160deg, rgba(13,27,42,0.35), rgba(26,26,46,0.55)),
+    url('/images/signup-bg.jpg') right center/cover no-repeat;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f0ede8;
+}
+
+.login-left {
+  background: 
+    linear-gradient(160deg, rgba(13,27,42,0.35), rgba(26,26,46,0.55)),
+    url('/images/login-bg.png') right center/cover no-repeat;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #f0ede8;
+}
+
+.left-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e8845a;
+  border: 1px solid rgba(216,90,48,0.4);
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.left-headline {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.left-sub { font-size: 13px; opacity: 0.8; margin-bottom: 1.5rem; }
+
+.left-stats { display: flex; gap: 1.5rem; }
+.stat-num { display: block; font-size: 1.2rem; font-weight: 700; color: #e8845a; }
+.stat-label { font-size: 11px; opacity: 0.45; }
+
+.signup-right { 
+  padding: 3rem 4rem; 
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.roamio-btn {
+  background-color: #d85a30;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+.roamio-btn:hover { background-color: #c04e26; color: white; }
+.roamio-link { color: #d85a30; font-weight: 500; }
+
+@media (max-width: 768px) {
+  .signup-split { grid-template-columns: 1fr; }
+  .signup-left { display: none; }
+  .login-left { display: none; }
+  .signup-right { padding: 2rem; }
+}
+
+.map-section {
+  border-top: 1.5px solid #f0f0f0;
+  padding-top: 2rem;
+  margin-top: 2.5rem;
+}
+.map-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+.map-subtitle {
+  font-size: 13px;
+  color: #888;
+  margin: 0 0 1.25rem;
+}
+#map {
+  width: 100%;
+  height: 350px;
+  border-radius: 14px;
+  border: 1.5px solid #e8e8e8;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Mapbox popup styling to match theme */
+.mapboxgl-popup-content {
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+.popup-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+.popup-location {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 6px;
+}
+.popup-note {
+  font-size: 11px;
+  color: #ff7e5f;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* Container for the filter bar */
+.category-filter {
+  display: flex; /* Forces all items to stay side-by-side in a row */
+  flex-wrap: nowrap; /* Stretches them continuously, stops them from jumping down */
+  gap: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  margin: -1.5rem auto 2rem auto;
+  max-width: 95%;
+  position: relative;
+  z-index: 10;
+
+  /* THESE TWO LINES FIX THE MOBILE CLIPPING BUG: */
+  overflow-x: auto; /* Lets you swipe left/right with your thumb */
+  scrollbar-width: none; /* Hides ugly browser scrollbars */
+}
+
+/* Hides ugly scrollbars on Chrome, Safari, and edge */
+.category-filter::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+/* Individual Category Items */
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333333; /* Darker charcoal for crisp contrast on glass surfaces */
+  font-size: 0.78rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0.6;
+  padding: 0.5rem 1rem;
+  border-radius: 30px; /* Clean pill shape for individual hover indicators */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Ultra-smooth response */
+  border-bottom: none !important; /* Removes the default harsh baseline row marker */
+}
+
+/* Icons inside the items */
+.cat-item i {
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+/* The Hover State - Soft Glow Indicator */
+.cat-item:hover {
+  opacity: 1;
+  color: #1a1a2e; /* Your theme's signature dark color */
+  background: rgba(255, 255, 255, 0.6); /* Highlights the background softly */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Subtle micro-interaction: icon floats up slightly on hover */
+.cat-item:hover i {
+  transform: translateY(-2px);
+}
+
+/* The Active State - The Permanent Highlight */
+.cat-item.active {
+  opacity: 1;
+  color: #ffffff; /* Contrast text against the dark active block */
+  background: #1a1a2e; /* Solid signature dark color background for high prominence */
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.2);
+}
+
+.search-form {
+  max-width: 400px;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  width: 100%;
+}
+
+.search-input {
+  border: 1px solid #ced4da;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  padding-right: 45px; /* Leaves space so text doesn't overlap your search icon */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Adds a nice glow focus effect when a user clicks inside the input box */
+.search-input:focus {
+  border-color: #1a1a2e;
+  box-shadow: 0 0 0 0.2rem rgba(26, 26, 46, 0.15);
+  color: #222222;
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+  color: #717171;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.search-btn:hover {
+  color: #1a1a2e; /* Icon turns dark when hovering over it */
+} 
+
+
+/* Navbar */
+/* Custom Global Navbar Container styling */
+.custom-roamio-nav {
+  padding: 0.6rem 0;
+  background-color: #ffffff !important;
+}
+
+/* Brand Logo Text & Icon */
+.brand-icon {
+  font-size: 1.5rem;
+  color: #1a1a2e; /* Sleek signature dark color */
+  transition: transform 0.4s ease;
+}
+.navbar-brand:hover .brand-icon {
+  transform: rotate(45deg); /* Compass rotates smoothly on hover */
+}
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #1a1a2e;
+  letter-spacing: 0.5px;
+}
+
+/* 🔍 THE PREMIUM SEARCH BAR CAPSULED DESIGN */
+.custom-search-form {
+  max-width: 380px;
+  width: 100%;
+}
+.search-pill-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.search-pill-input {
+  width: 100%;
+  padding: 0.55rem 3.5rem 0.55rem 1.2rem;
+  border: 1px solid #dddddd;
+  border-radius: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #222222;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+.search-pill-input:focus {
+  border-color: #1a1a2e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  outline: none;
+}
+/* The Dark Solid Circle Icon button inside the input field */
+.search-pill-btn {
+  position: absolute;
+  right: 6px;
+  background-color: #1a1a2e;
+  color: #ffffff !important;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+.search-pill-btn i {
+  font-size: 0.78rem;
+}
+.search-pill-btn:hover {
+  background-color:#d65a31;; /* Changes to a vibrant traveler accent on hover */
+}
+
+/* 🏷️ CUSTOM UNDERLINE ANIMATION FOR NAVIGATION LINKS */
+.nav-custom-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #555555 !important;
+  text-decoration: none;
+  position: relative;
+  padding: 0.25rem 0.4rem;
+  transition: color 0.2s ease;
+}
+.nav-custom-link:hover, .nav-custom-link.active {
+  color: #1a1a2e !important;
+}
+/* Hidden line beneath text that opens gracefully from left to right on hover */
+/* .nav-custom-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #1a1a2e;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+} */
+.nav-custom-link:hover::after, .nav-custom-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Button Box framing for Login / Logout triggers */
+.link-login {
+  background-color: rgba(26, 26, 46, 0.05);
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+}
+.link-login::after, .link-logout::after {
+  display: none; /* Disables underline effect for solid item blocks */
+}
+.link-login:hover {
+  background-color: rgba(26, 26, 46, 0.1);
+}
+.link-logout {
+  color: #fe424d !important; /* soft alert shade for system signouts */
+  background-color: rgba(254, 66, 77, 0.05);
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+}
+.link-logout:hover {
+  background-color: rgba(254, 66, 77, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* login  */
+/* 🌍 AUTH SPLIT LAYOUT PANEL */
+.signup-split {
+  display: flex;
+  min-height: calc(100vh - 70px); /* Fills the viewport beneath the navbar */
+  margin: 0 -1.5rem; /* Negates default container padding for a full bleed */
+  background-color: #ffffff;
+}
+
+/* Left Hero Presentation Block */
+.login-left {
+  flex: 1;
+  background: linear-gradient(145deg, #1a1a2e, #0d1b2a); /* Deep signature dark palette */
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f0ede8;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Atmospheric grid lines pattern overlay on the left banner */
+.login-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.left-tag h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d65a31; /* Vibrant Sunset Coral Accent */
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.left-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.left-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  opacity: 0.8;
+  max-width: 400px;
+  margin-bottom: 4rem;
+}
+
+/* Real-Time Platform Statistics Counter Styling */
+.left-stats {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.stat-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.stat-label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  margin-top: 0.2rem;
+}
+
+/* Right Interactive Input Form Block */
+.signup-right {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.signup-right h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+}
+
+.signup-right p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+}
+
+/* Brand Logo Layout inside Form Area */
+.auth-brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-brand i {
+  font-size: 1.4rem;
+  color: #d65a31; /* Matches search hover coral */
+}
+
+.auth-brand span {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1a1a2e;
+}
+
+/* 🏷️ CUSTOM PREMIUM CUSTOM INPUT FIELDS */
+.roamio-input {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #222222;
+  transition: all 0.2s ease;
+}
+
+.roamio-input::placeholder {
+  color: #aaaaaa;
+}
+
+.roamio-input:focus {
+  border-color: #1a1a2e;
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.08);
+  outline: none;
+}
+
+/* The Main Submit Button Action Button */
+.roamio-btn {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.roamio-btn:hover {
+  background-color: #d65a31; /* Pops into Sunset Coral on hover */
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(214, 90, 49, 0.25);
+  transform: translateY(-1px);
+}
+
+.roamio-link {
+  color: #d65a31;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.roamio-link:hover {
+  color: #1a1a2e;
+  text-decoration: underline;
+}
+
+/* 📱 RESPONSIVE SYSTEM STABILITY FOR MOBILE SCREENS */
+@media (max-width: 991px) {
+  .login-left {
+    padding: 3rem;
+  }
+  .signup-right {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .signup-split {
+    flex-direction: column;
+    min-height: auto;
+    margin: 0;
+  }
+  .login-left {
+    display: none; /* Smoothly hides presentation side on small viewports so form remains fully focused */
+  }
+  .signup-right {
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+  }
+}
+
+
+/* signup */
+/* 🌍 AUTH SPLIT LAYOUT PANEL */
+.signup-split {
+  display: flex;
+  min-height: calc(100vh - 70px); /* Fills the viewport beneath the navbar */
+  margin: 0 -1.5rem; /* Negates default container padding for a full bleed */
+  background-color: #ffffff;
+}
+
+/* 🔄 UPDATED SELECTOR: Targets both Login and Signup Left Panels */
+.login-left, .signup-left {
+  flex: 1;
+  background: linear-gradient(145deg, #1a1a2e, #0d1b2a); /* Deep signature dark palette */
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f0ede8;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Atmospheric grid lines pattern overlay on the left banner */
+.login-left::before, .signup-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.left-tag h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d65a31; /* Vibrant Sunset Coral Accent */
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.left-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.left-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  opacity: 0.8;
+  max-width: 400px;
+  margin-bottom: 4rem;
+}
+
+/* Platform Statistics Counter Styling */
+.left-stats {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.stat-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.stat-label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  margin-top: 0.2rem;
+}
+
+/* Right Interactive Input Form Block */
+.signup-right {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.signup-right h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+}
+
+.signup-right p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+}
+
+/* Brand Logo Layout inside Form Area */
+.auth-brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-brand i {
+  font-size: 1.4rem;
+  color: #d65a31;
+}
+
+.auth-brand span {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1a1a2e;
+}
+
+/* CUSTOM PREMIUM INPUT FIELDS */
+.roamio-input {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #222222;
+  transition: all 0.2s ease;
+}
+
+.roamio-input::placeholder {
+  color: #aaaaaa;
+}
+
+.roamio-input:focus {
+  border-color: #1a1a2e;
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.08);
+  outline: none;
+}
+
+/* Main Action Submit Button */
+.roamio-btn {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.roamio-btn:hover {
+  background-color: #d65a31; /* Pops into Sunset Coral on hover */
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(214, 90, 49, 0.25);
+  transform: translateY(-1px);
+}
+
+.roamio-link {
+  color: #d65a31;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.roamio-link:hover {
+  color: #1a1a2e;
+  text-decoration: underline;
+}
+
+/* 📱 RESPONSIVE SYSTEM STABILITY FOR MOBILE SCREENS */
+@media (max-width: 991px) {
+  .login-left, .signup-left {
+    padding: 3rem;
+  }
+  .signup-right {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .signup-split {
+    flex-direction: column;
+    min-height: auto;
+    margin: 0;
+  }
+  .login-left, .signup-left {
+    display: none; /* Smoothly hides presentation side on small mobile viewports */
+  }
+  .signup-right {
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+  }
+}
+
+.login-left, .signup-left {
+  flex: 1;
+  /* 🌌 A smooth radial mesh gradient that blends your signature dark color into a soft sunset hue */
+  background: radial-gradient(circle at top left, rgba(214, 90, 49, 0.15), transparent 45%),
+              linear-gradient(135deg, #1a1a2e, #0d1b2a);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f0ede8;
+  position: relative;
+}
+
+/* Remove the white grid lines */
+.login-left::before, .signup-left::before {
+  display: none;
+}
+
+/* 🔥 THE SUBMIT BUTTON - LOCKED PERMANENTLY INTO SUNSET CORAL */
+.roamio-btn {
+  background-color: #d65a31; /* Locked into your exact sunset coral orange shade from image_46bfe0.png */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(214, 90, 49, 0.15); /* Soft premium shadow glow active by default */
+  transition: all 0.2s ease;
+}
+
+/* Subtle feedback animation if they still tap/click it */
+.roamio-btn:hover {
+  background-color: #be4f2a; /* Slightly deeper coral hue for an elegant press state */
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(214, 90, 49, 0.25);
+}
+
+
+/* 🏷️ FOOTER ROUTE LINKS - PERMANENTLY HIGHLIGHTED */
+.roamio-link {
+  color: #d65a31; /* Permanent coral brand emphasis text */
+  text-decoration: underline; /* Permanent underline decoration style */
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.roamio-link:hover {
+  color: #1a1a2e; /* Flips cleanly to your dark signature navy if hovered over */
+}
+
+/* 🔍 THE SEARCH BUTTON - LOCKED PERMANENTLY INTO SUNSET CORAL */
+.search-pill-btn {
+  position: absolute;
+  right: 6px;
+  background-color: #d65a31; /* 🔴 CHANGED: Locked into the image_46bfe0.png sunset coral by default! */
+  color: #ffffff !important;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Smooth scale transition for a clean pressing effect */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Subtle micro-interaction feedback when they actually hover or click */
+.search-pill-btn:hover {
+  background-color: #be4f2a; /* Slightly deeper coral tone when the cursor touches it */
+  transform: scale(1.08); /* Keeps the premium micro-pop scaling effect */
+}
+
+/* 🗺️ ROAMIO MASTER GLOBAL FOOTER CONTAINER */
+.roamio-footer {
+  background-color: #ffffff;
+  padding: 1.5rem 0;
+  margin-top: auto; /* Ensures footer sits perfectly at bottom if content is short */
+}
+
+/* Flexbox Layout Alignment Bridge */
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Guarantees layout wraps instead of breaking on smaller viewports */
+  gap: 1rem;
+}
+
+/* Left Side Structural Link Deck */
+.footer-legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: #222222;
+}
+
+.copyright {
+  font-weight: 500;
+  color: #1a1a2e; /* Brand deep signature tone */
+}
+
+.footer-dot {
+  color: #b0b0b0;
+  font-weight: bold;
+  padding: 0 0.1rem;
+}
+
+.footer-link {
+  color: #555555;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* Elegant highlight hover logic for internal policy anchors */
+.footer-link:hover {
+  color: #1a1a2e;
+  text-decoration: underline;
+}
+
+/* 📱 RIGHT SIDE SOCIAL CHANNELS WITH SUNSET CORAL POP */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.social-icon-wrapper {
+  color: #555555;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Social icons smoothly morph into your signature Sunset Coral color on hover! */
+.social-icon-wrapper:hover {
+  color: #d65a31; /* Locked custom Sunset Coral color */
+  transform: translateY(-2px); /* Premium subtle floating up micro-interaction */
+}
+
+/* 📱 FULL RESPONSIVE COMPACT ALIGNMENT OVERRIDES FOR PHONE LAYOUTS */
+@media (max-width: 575px) {
+  .footer-wrapper {
+    flex-direction: column-reverse; /* Puts branding icons on top on small screens */
+    text-align: center;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .footer-legal {
+    justify-content: center;
+    flex-direction: column; /* Stacks links beautifully on tiny viewports */
+    gap: 0.4rem;
+  }
+
+  .footer-dot {
+    display: none; /* Discards separating dots when elements are stacked into a list */
+  }
+}
+
+
+/* 🌌 MASTER DEEP DARK MEGA FOOTER ACCENT */
+.roamio-mega-footer {
+  background-color: #0d121f; /* Matches that gorgeous deep dark tone from image_466225.jpg */
+  color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  margin-top: auto;
+}
+
+/* Brand Logo Text Styles */
+.brand-icon-footer {
+  font-size: 1.6rem;
+  color: #d65a31; /* Locked Sunset Coral */
+}
+
+.brand-text-footer {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+  font-size: 0.9rem;
+  color: #a0a5b5; /* Soft readable grey */
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* 🏷️ COLUMN HEADINGS & STRINGS */
+.footer-heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.footer-links-list li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links-list a {
+  color: #a0a5b5;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+/* Links turn white and lift slightly on hover */
+.footer-links-list a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* 📱 SOCIAL LINK WRAPPERS WITH THE SUNSET CORAL HIGHLIGHT */
+.footer-social-grid {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-social-grid a {
+  color: #ffffff;
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.footer-social-grid a:hover {
+  color: #d65a31; /* Pops into your premium Sunset Coral color on hover! */
+  transform: scale(1.15);
+}
+
+/* Bottom thin divider stripline color tuning */
+.footer-bottom-bar {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.footer-bottom-bar p {
+  color: #6c7283 !important;
+}
+
+/* 📱 MOBILE RESPONSIVE TUNING */
+@media (max-width: 991px) {
+  .footer-brand-section {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer-heading {
+    margin-top: 0.5rem;
+  }
+}
+
+
+.login-left, .signup-left {
+  flex: 1;
+  /* 🌌 Fades from your deep dark navy at the top to a slightly lighter slate tone at the bottom */
+  background: linear-gradient(180deg, #0d121f 0%, #1a233d 100%); 
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f0ede8;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5;
+}
+
+.user-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fd5c63; /* Roamio ka koi bhi brand color use kar lo */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: default;
+  user-select: none;
+}
+
+.user-profile-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fd5c63;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.user-name-text {
+  font-weight: 500;
+  color: #222;
+  white-space: nowrap;
+}
+
+
+.navbar {
+    background-color: white;
+}
+
+/* Fixed height sirf desktop screens pe lagao, jaha menu collapse nahi hota */
+@media (min-width: 768px) {
+    .navbar {
+        height: 5rem;
+    }
+}
+
+/* 📱 FIX: Mobile navbar collapse overlap issue */
+@media (max-width: 767px) {
+  .navbar {
+    height: auto !important;
+  }
+
+  .navbar-collapse {
+    background-color: #ffffff;
+    padding: 1rem 0;
+  }
+
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    position: relative;
+    z-index: 1050;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-custom-link,
+  .navbar-nav .user-profile-tag {
+    padding: 0.6rem 0;
+    width: 100%;
+  }
+
+  .custom-search-form {
+    max-width: 100%;
+    margin: 0.75rem 0 !important;
+  }
+}
+
+.footer-brand-section a {
+  text-decoration: none;
+}

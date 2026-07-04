@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-md bg-white border-bottom sticky-top custom-roamio-nav">
+  <div class="container-fluid px-4">
+    
+    <a class="navbar-brand d-flex align-items-center me-4" href="/listings"> 
+      <i class="bi bi-compass brand-icon me-2"></i>
+      <span class="brand-text">Roamio</span>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      
+      <div class="navbar-nav">
+        <a class="nav-custom-link active me-3" href="/listings">Explore</a>
+      </div>
+
+      <form class="d-flex mx-auto custom-search-form" action="/listings" method="GET" role="search">
+        <div class="search-pill-wrapper">
+          <input 
+            class="form-control search-pill-input" 
+            type="search" 
+            name="search" 
+            placeholder="Search Listings..." 
+            aria-label="Search"
+          >
+          <button class="search-pill-btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+
+      <div class="navbar-nav ms-auto gap-2 align-items-center">
+        <a class="nav-custom-link" href="/listings/new">Add Your Stay</a>
+        
+        <% if(!currUser) { %>
+          <a class="nav-custom-link" href="/signUp">SignUp</a>
+          <a class="nav-custom-link link-login" href="/login">Login</a>
+        <% } %>
+        
+        <% if(currUser) { %>
+  <div class="user-profile-tag me-2">
+    <div class="user-avatar-circle">
+      <%= currUser.username.charAt(0).toUpperCase() %>
+    </div>
+    <span class="user-name-text"><%= currUser.username %></span>
+  </div>
+  <a class="nav-custom-link link-logout" href="/logout">Logout</a>
+<% } %>
+      </div>
+
+    </div>
+  </div>
+</nav>

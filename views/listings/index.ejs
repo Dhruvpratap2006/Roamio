@@ -1,0 +1,267 @@
+<%- layout("/layouts/boilerPlate") -%>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-banner {
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(13,27,42,0.3), rgba(26,26,46,0.55));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f0ede8;
+  }
+
+  .hero-overlay h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  /* MODERN CAPSULE FILTER BAR DESIGN */
+  .category-filter {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    margin: -1.5rem auto 2rem auto;
+    max-width: 95%;
+    position: relative;
+    z-index: 10;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .category-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333333;
+    font-size: 0.78rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0.6;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .cat-item i {
+    font-size: 1.35rem;
+    margin-bottom: 0.25rem;
+    transition: transform 0.2s ease;
+  }
+
+  .cat-item:hover {
+    opacity: 1;
+    color: #1a1a2e;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  }
+
+  .cat-item:hover i {
+    transform: translateY(-2px);
+  }
+
+  /* The Active State - No solid box, just clean dark text and an underline */
+.cat-item.active {
+  opacity: 1;
+  color: #1a1a2e; /* Changes text/icon to your signature dark color */
+  background: transparent; /* Removes the black/dark box completely */
+  border-bottom: 3px solid #1a1a2e; /* Adds a nice dark underline beneath the text */
+  border-radius: 0px; /* Reset the rounded capsule back to flat for the line */
+  padding-bottom: 0.25rem;
+}
+
+  /* CRISP CARD PRICE DESIGN */
+  .card-price {
+    color: #222222;
+    font-weight: 600;
+  }
+
+  .card-price span {
+    font-weight: 500;
+    color: #030000;
+  }
+
+  /* TAX TOGGLE SWITCH DECK STYLING */
+  .tax-toggle-bar {
+    border: 1px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 0.75rem 1.2rem;
+    max-width: fit-content;
+    margin: 0 auto 1.5rem 0;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .custom-tax-switch label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #444444;
+    cursor: pointer;
+    user-select: none;
+    padding-right: 0.75rem;
+  }
+
+  .custom-tax-switch .form-check-input:checked {
+    background-color: #1a1a2e;
+    border-color: #1a1a2e;
+  }
+</style>
+
+<div class="hero-banner">
+  <img src="/images/hero-bg.jpg" alt="hero">
+  <div class="hero-overlay">
+    <h1>Har safar ka apna Roamio</h1>
+    <p>Discover unique places to stay around the world.</p>
+  </div>
+</div>
+
+<div class="category-filter">
+  <a href="/listings" class="cat-item <%= !category ? 'active' : '' %>">
+    <i class="bi bi-compass"></i><p>All Stays</p>
+  </a>
+  <a href="/listings?category=trending" class="cat-item <%= category === 'trending' ? 'active' : '' %>">
+    <i class="bi bi-fire"></i><p>Trending</p>
+  </a>
+  <a href="/listings?category=beachfront" class="cat-item <%= category === 'beachfront' ? 'active' : '' %>">
+    <i class="bi bi-water"></i><p>Beachfront</p>
+  </a>
+  <a href="/listings?category=mountains" class="cat-item <%= category === 'mountains' ? 'active' : '' %>">
+    <i class="bi bi-snow2"></i><p>Mountains</p>
+  </a>
+  <a href="/listings?category=iconic-cities" class="cat-item <%= category === 'iconic-cities' ? 'active' : '' %>">
+    <i class="bi bi-buildings"></i><p>Iconic Cities</p>
+  </a>
+  <a href="/listings?category=camping" class="cat-item <%= category === 'camping' ? 'active' : '' %>">
+    <i class="bi bi-fire"></i><p>Camping</p>
+  </a>
+  <a href="/listings?category=castles" class="cat-item <%= category === 'castles' ? 'active' : '' %>">
+    <i class="bi bi-bank"></i><p>Castles</p>
+  </a>
+  <a href="/listings?category=tea-trails" class="cat-item <%= category === 'tea-trails' ? 'active' : '' %>">
+    <i class="bi bi-cup-hot"></i><p>Tea Trails</p>
+  </a>
+  <a href="/listings?category=scholars-retreats" class="cat-item <%= category === 'scholars-retreats' ? 'active' : '' %>">
+    <i class="bi bi-journal-bookmark"></i><p>Scholar's Retreats</p>
+  </a>
+  <a href="/listings?category=wild-outposts" class="cat-item <%= category === 'wild-outposts' ? 'active' : '' %>">
+    <i class="bi bi-tree"></i><p>Wild Outposts</p>
+  </a>
+  <a href="/listings?category=high-altitude" class="cat-item <%= category === 'high-altitude' ? 'active' : '' %>">
+    <i class="bi bi-cloud-snow"></i><p>High-Altitude</p>
+  </a>
+</div>
+
+<!--  toogle buuton for tax -->
+<div class="tax-toggle-bar">
+  <div class="form-check form-switch form-check-reverse custom-tax-switch">
+    <input class="form-check-input" type="checkbox" id="taxToggle">
+    <label class="form-check-label" for="taxToggle">Display total price including 18% GST</label>
+  </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3">
+    <% for(let listings of allListings) { %>
+    <div class="col">
+        <a href="/listings/<%= listings._id %>" class="card-link">
+            <div class="card roamio-card">
+                <div class="img-wrapper">
+                    <img src="<%= listings.image.url %>" 
+                    class="card-img-top" 
+                    alt="listing-image"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=60';">
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title"><%= listings.title %></h6>
+                    <p class="card-location">📍 <%= listings.location %>, <%= listings.country %></p>
+                    <p class="card-price">
+                      <!-- price before tax  -->
+                        <span class="base-price">
+                          &#8377; <%= listings.price ? listings.price.toLocaleString("en-IN") : "N/A" %>
+                        </span>
+                        <!-- price after tax -->
+                        <span class="tax-info d-none">
+                          &#8377; <%= listings.price ? (listings.price * 1.18).toLocaleString("en-IN") : "N/A" %> 
+                          <small class="text-muted" style="font-size: 0.7rem;">(incl. 18% GST)</small>
+                        </span>
+                        <span> / night</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <% } %>
+</div>
+
+<script>
+const taxToggle = document.getElementById("taxToggle");
+if (taxToggle) {
+  // in place of change we can also write click
+    taxToggle.addEventListener("change", () => { 
+        const basePrices = document.getElementsByClassName("base-price");
+        const taxInfos = document.getElementsByClassName("tax-info");
+
+        for (let i = 0; i < basePrices.length; i++) {
+            if (taxToggle.checked) {
+              // as soon as we click on taxToogle then it will make 
+              // base Price as display-none(d-none) 
+              // and show taxPrice by removing d-none from it
+                basePrices[i].classList.add("d-none");
+                taxInfos[i].classList.remove("d-none");
+            } else {
+              // else if there is no click on taxToogle then it will show original prices
+                basePrices[i].classList.remove("d-none");
+                taxInfos[i].classList.add("d-none");
+            }
+        }
+    });
+}
+</script>

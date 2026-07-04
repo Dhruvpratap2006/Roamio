@@ -1,0 +1,220 @@
+<%- layout("/layouts/boilerPlate") -%>
+
+<style>
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(255, 126, 95, 0.35);
+}
+.btn-back:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 126, 95, 0.45);
+  color: white;
+}
+
+.category-select {
+  font-family: 'Poppins', sans-serif;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.category-select:hover {
+  border-color: #aaa;
+}
+
+.category-select:focus {
+  border-color: #1a1a2e;
+  box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
+  outline: none;
+  background-color: #fff;
+}
+
+.category-select option {
+  padding: 0.5rem;
+}
+</style>
+
+
+<a href="/listings" class="btn-back">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M12 5l-7 7 7 7"/>
+  </svg>
+  Back
+</a>
+
+<div class="row mt-4 mb-5">
+    <div class="col-8 offset-2">
+        <h2 class="roamio-form-heading">Create New Listing</h2>
+        
+        <div class="roamio-form-card">
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" 
+                        id="title"
+                        placeholder="Name of your destination" 
+                        type="text" class="form-control roamio-input" 
+                        required>
+                    <div class="valid-feedback">
+                        ✓ Great title for your listing!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a title for your listing.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]"
+                        id="description" 
+                        placeholder="Write a few lines about the place..." 
+                        class="form-control roamio-input" rows="4" required>
+                    </textarea>
+
+                    <!-- code for generating des using Ai -->
+                     <button type="button" id="generateBtn" class="btn btn-outline-secondary btn-sm mt-1">
+                        ✨ Generate with AI
+                    </button>
+
+                <script>
+                        document.getElementById("generateBtn").addEventListener("click", async () => {
+                            const title = document.querySelector("[name='listing[title]']").value;
+                            const location = document.querySelector("[name='listing[location]']").value;
+                            const category = document.querySelector("[name='listing[category]']").value;
+
+                            if (!title || !location || !category) {
+                            alert("Fill title, location, and category first!");
+                            return;
+                            }
+
+                            const btn = document.getElementById("generateBtn");
+                            btn.disabled = true;
+                            btn.innerText = "Generating...";
+
+                            try {
+                            const res = await fetch("/listings/generate-description", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ title, location, category }),
+                            });
+                            const data = await res.json();
+                            document.querySelector("[name='listing[description]']").value = data.description;
+                            } catch (err) {
+                            alert("Failed to generate. Try again.");
+                            } finally {
+                            btn.disabled = false;
+                            btn.innerText = "✨ Generate with AI";
+                            }
+                        });
+                </script>
+
+                    <div class="valid-feedback">
+                        ✓ Nice description!
+                    </div>
+                    <div class="invalid-feedback">
+                        A short description helps guests know what to expect.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Select Category</label>
+                    
+                        <select id="category" name="listing[category]" class="form-select category-select" required>
+                            <option value="">🌐 Explore Categories</option>
+                            <option value="trending">🔥 Trending</option>
+                            <option value="beachfront">🏖️ Beachfront</option>
+                            <option value="mountains">⛰️ Mountains</option>
+                            <option value="iconic-cities">🏙️ Iconic Cities</option>
+                            <option value="camping">⛺ Camping</option>
+                            <option value="castles">🏰 Castles</option>
+                            <option value="tea-trails">☕ Tea Trails & Estates</option>
+                            <option value="scholars-retreats">🏛️ Scholar's Retreats</option>
+                            <option value="wild-outposts">⛺ Wild & Outpost Stays</option>
+                            <option value="high-altitude">🏔️ High-Altitude Havens</option>
+                        </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">
+                        Upload Image 
+                        <span class="text-muted" style="font-size: 0.85rem;">(optional)</span>
+                    </label>
+                    <input name="listing[image]"
+                        id="image"
+                        type="file" 
+                        class="form-control roamio-input"
+                        required>
+                        
+                    <!-- <div class="form-text text-muted" style="font-size: 0.8rem;">
+                        Leave blank to use a default image.
+                    </div> -->
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price <span class="text-muted" style="font-size: 0.85rem;">/ night</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text roamio-addon">₹</span>
+                            <input name="listing[price]" 
+                                id="price"
+                                placeholder="1200" 
+                                type="number" 
+                                min="0"
+                                class="form-control roamio-input" required>
+                        </div>
+                        <div class="valid-feedback">✓ Looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid price per night.</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" 
+                            id="country"
+                            placeholder="e.g. India" 
+                            type="text" 
+                            class="form-control roamio-input" required>
+                        <div class="valid-feedback">✓ Got it!</div>
+                        <div class="invalid-feedback">Please enter the country where your listing is located.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" 
+                        id="location"
+                        placeholder="e.g. Manali, Himachal Pradesh" 
+                        type="text" 
+                        class="form-control roamio-input" required>
+                    <div class="valid-feedback">✓ Perfect!</div>
+                    <div class="invalid-feedback">Please enter the city and state of your listing.</div>
+                </div>
+
+                <button class="btn btn-roamio-submit mt-3">Add Listing</button>
+            </form>
+            
+            <!-- <div class="mt-4">
+                <a href="/listings" class="roamio-back-link">
+                    <i class="fa-solid fa-arrow-left-long"></i> Back to all Listings
+                </a>
+            </div> -->
+        </div>
+    </div>
+</div>
