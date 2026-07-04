@@ -36,13 +36,21 @@ Roamio lets users create, browse, review, and book travel listings. Hosts can au
 |---|---|
 | ![Homepage](public/images/homepage.png) | ![Explore](public/images/explore-listings.png) |
 
-| Listing + Map | AI Description |
+| Featured Listings | Add Listing |
 |---|---|
-| ![Listing](public/images/listing-details.png) | ![AI Description](public/images/ai-description.png) |
+| ![Featured](public/images/featured-listings.png) | ![Add Listing](public/images/add-listing.png) |
 
-| AI Sentiment Summary | Stripe Checkout |
+| Listing Details + Map | Listing Details (Reviews) |
 |---|---|
-| ![AI Sentiment](public/images/ai-sentiment.png) | ![Payment](public/images/payment-page.png) |
+| ![Listing](public/images/listing-details.png) | ![Listing 2](public/images/listing-details-2.png) |
+
+| Login | Signup |
+|---|---|
+| ![Login](public/images/login-page.png) | ![Signup](public/images/signup-page.png) |
+
+| Stripe Checkout |
+|---|
+| ![Payment](public/images/payment-page.png) |
 
 ## Run it locally
 
@@ -86,4 +94,3 @@ Runs at `http://localhost:8080`
 ---
 
 ⭐ If you found this useful, drop a star!
-
