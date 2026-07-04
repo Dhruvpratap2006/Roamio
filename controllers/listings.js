@@ -2,6 +2,7 @@
 // routes/listings.js
 
 const { generateListingDescription } = require("../utils/aiService");
+const analyzeReviewsAI = require("../utils/analyzeReviews.js"); // naya helper function
 const Listing = require("../modules/listing");
 const Booking = require("../modules/booking.js");
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
@@ -145,4 +146,48 @@ module.exports.destroyListing = async (req, res) => {
     console.log(deletedListing);
     req.flash("success", "Listing removed successfully.");
     res.redirect("/listings")
+};
+
+module.exports.analyzeReviews = async (req, res) => {
+    const { id } = req.params;
+
+    // Step 1: Listing nikalo aur uske reviews populate karo
+    const listing = await Listing.findById(id).populate("reviews");
+
+    if (!listing) {
+        throw new ExpressError(404, "Listing not found");
+    }
+
+    if (listing.reviews.length === 0) {
+        // Koi review nahi hai to seedha bata do
+        return res.json({ hasReviews: false });
+    }
+
+    // Step 2: Average rating nikalna
+    const totalRating = listing.reviews.reduce((sum, r) => sum + r.rating, 0);
+    const averageRating = (totalRating / listing.reviews.length).toFixed(1);
+
+    // Step 3: Sirf comment text nikalna, empty comments hata dena
+    const comments = listing.reviews.map((r) => r.comment).filter(Boolean);
+
+    if (comments.length === 0) {
+        // Sirf rating diya, comment nahi likha kisi ne
+        return res.json({
+            hasReviews: true,
+            averageRating,
+            totalReviews: listing.reviews.length,
+            summary: "Logo ne rating di hai lekin koi detailed comment nahi likha."
+        });
+    }
+
+    // Step 4: AI se analysis karwana
+    const analysis = await analyzeReviewsAI(comments);
+
+    // Step 5: Response bhejna
+    res.json({
+        hasReviews: true,
+        averageRating,
+        totalReviews: listing.reviews.length,
+        ...analysis
+    });
 };

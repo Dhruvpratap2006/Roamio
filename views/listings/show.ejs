@@ -177,7 +177,26 @@
 </div>
 
   <div class="reviews-section">
+  
+
     <h2 class="reviews-title">⭐ Reviews</h2>
+
+<!-- Analyze Reviews button aur result box -->
+<button id="analyzeBtn" data-listing-id="<%= listing._id %>" class="btn-review-submit" style="margin-bottom: 1rem;">
+  🔍 Analyze Reviews
+</button>
+
+<p id="loadingText" style="display:none; color:#888; font-size:14px; margin-bottom:1rem;">
+  Analyzing reviews...
+</p>
+
+<div id="sentimentBox" class="sentiment-box" style="display:none;">
+  <span class="sentiment-emoji" id="sentimentEmoji"></span>
+  <div class="sentiment-content">
+    <p class="sentiment-label" id="sentimentLabel"></p>
+    <p class="sentiment-summary" id="sentimentSummary"></p>
+  </div>
+</div>
 
 
     <% if(currUser) { %>
@@ -267,3 +286,64 @@
 </div>
 
 <script src="/js/map.js"></script>
+
+<script>
+document.getElementById("analyzeBtn").addEventListener("click", async function () {
+    const listingId = this.dataset.listingId;
+    const loadingText = document.getElementById("loadingText");
+    const sentimentBox = document.getElementById("sentimentBox");
+    const btn = this;
+
+    // Button disable karna taaki user baar baar click na kare
+    btn.disabled = true;
+    loadingText.style.display = "block";
+    sentimentBox.style.display = "none";
+
+    try {
+        const res = await fetch(`/listings/${listingId}/analyze-reviews`, {
+            method: "POST"
+        });
+        const data = await res.json();
+
+        loadingText.style.display = "none";
+        btn.disabled = false;
+
+        if (!data.hasReviews) {
+            sentimentBox.className = "sentiment-box neutral";
+            document.getElementById("sentimentEmoji").innerText = "💬";
+            document.getElementById("sentimentLabel").innerText = "No Reviews Yet";
+            document.getElementById("sentimentSummary").innerText = "Abhi tak koi review nahi hai is listing pe.";
+            sentimentBox.style.display = "flex";
+            return;
+        }
+
+        // Kaunsa sentiment sabse zyada hai, uske hisaab se color/emoji decide karna
+        const { positive, neutral, negative, summary, averageRating } = data;
+        let type = "neutral";
+        let emoji = "😐";
+
+        if (positive > neutral && positive > negative) {
+            type = "positive";
+            emoji = "😊";
+        } else if (negative > positive && negative > neutral) {
+            type = "negative";
+            emoji = "😞";
+        } else if (positive > 0 && negative > 0) {
+            type = "mixed";
+            emoji = "🤔";
+        }
+
+        sentimentBox.className = `sentiment-box ${type}`;
+        document.getElementById("sentimentEmoji").innerText = emoji;
+        document.getElementById("sentimentLabel").innerText = `Average Rating: ${averageRating} ⭐`;
+        document.getElementById("sentimentSummary").innerText = summary;
+        sentimentBox.style.display = "flex";
+
+    } catch (err) {
+        loadingText.style.display = "none";
+        btn.disabled = false;
+        alert("Kuch gadbad ho gayi, dobara try kar.");
+        console.error(err);
+    }
+});
+</script>

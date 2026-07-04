@@ -61,6 +61,9 @@ router.get("/new",
 // and in this case frontend will return the generated des, title and category 
 router.post("/generate-description", isLoggedIn, aiLimiter, wrapAsync(listingController.generateDescription));
 
+// route for ai review analysizes
+router.post("/:id/analyze-reviews", aiLimiter, wrapAsync(listingController.analyzeReviews));
+
 router.route("/:id")
 .get( 
     wrapAsync(listingController.showListing)
