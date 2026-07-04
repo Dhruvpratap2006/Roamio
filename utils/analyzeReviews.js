@@ -50,7 +50,7 @@ Based on these reviews, respond ONLY with a valid JSON object (no extra text, no
     // isliye sirf { } ke beech ka part nikaal rahe hain
     const jsonMatch = rawText.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-        throw new Error("AI se valid JSON nahi mila, dobara try karo");
+        throw new Error("Not getting valid response from AI. Please try again later.");
     }
 
     // Step 6: JSON parse karke return karna

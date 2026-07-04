@@ -24,7 +24,7 @@ const { createCheckoutSession } = require("../utils/stripeService")
 
 const aiLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
-  max: 10, // each user can hit this route max 10 times per day
+  max: 15, // each user can hit this route max 15 times per day
   message: { error: "You've reached today's AI generation limit. Try again tomorrow!" },
   standardHeaders: true,
   legacyHeaders: false,
